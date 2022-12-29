@@ -9,10 +9,13 @@ body {
     height: 90px;
     display: flex;
     width: 100%;
+    grid-template-rows: 10px;
     padding-bottom: 20px;
     position: sticky;
     top: 0;
     margin-bottom: 30px;
+    /* justify-content:space-between; */
+    /* gap: 50px 600px; */
 
 }
 
@@ -20,7 +23,8 @@ body {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin-left:20px;
     font-size:45px;
-    margin-bottom: 10px;
+    color: #fff;
+
 } 
 
 .navlinks{
@@ -32,13 +36,26 @@ body {
     font-weight: bold;
 }
 
+.navlinks:hover{
+    color: gold;
+    font-size: 150%;
+    text-decoration: underline;
+}
+
+.navlinks:visited{
+    color: red;
+}
+.navlinks:focus{
+background-color: greenyellow;
+}
+
 li{
     display: inline-block;
     padding: 3px;
 }
 nav{
-    padding-left: 700px;
-    padding-top: 30px;
+    padding-left:700px;
+    padding-top: 25px;
 }
 
 img{
@@ -49,8 +66,10 @@ img{
 
 footer{
     background-color: gray;
-    height:80px;
+    height:fit-content;
     text-align: center;
+    display: block;
+
 }
 
 #copyrights{
@@ -63,6 +82,13 @@ footer{
     font-size: large;
     margin-bottom: 40px;
 }
+
+#mainparagraph::selection{
+    background-color: yellow;
+    text-shadow: 3px 3px 2px #E6E8FA; 
+    text-shadow: 3px 3px 2px #E6E8FA
+}
+
 
 hr{
     background-image: url(hr-img.png);
@@ -106,9 +132,14 @@ hr{
     border: 2px solid black;
     width: 40%;
     margin-left: 10px;
+    margin-bottom: 30px;
 }
 .genderclass {
     display: inline
+}
+
+.genderclass:hover{
+    cursor: pointer;
 }
 
 #formField{
@@ -124,7 +155,8 @@ hr{
 #signlegend{
     width: 30%;
     margin-top: 10px;
-    font-size: larger;
+    font-size: x-large;
+    font-family: 'Signika Negative', sans-serif;
 }
 
 .inputclass{
@@ -140,6 +172,13 @@ hr{
 .inputfields {
     height:20px
 }
+
+.inputfields:active{
+    color: red;
+}
+.inputfields:focus{
+    color: aqua;
+}
 #email{
     width: 190px;
 }
@@ -148,3 +187,75 @@ hr{
     margin-left: 0;
 }
 
+#submit {
+    margin-bottom:50px;
+    margin-left: 10px;
+    padding: 5px;
+    font-size:15px;
+}
+#submit:hover{
+    cursor: pointer;
+    width: 15%;
+    height: 30%;
+    font-size: 150%;
+}
+
+#coursespara::first-line{
+   text-shadow:  0 0 5px #fff700, 0 0 10px #fff700,
+    0 0 20px #fff700, 0 0 40px #fff700;
+    color: #fff;
+    font-size: 40px;
+}
+
+
+
+    table, th, td {
+        border: 1px solid;
+        width: 50%;
+        height: 50%;
+      }
+      tr {
+        width: 100px;
+      }
+    .lastcell{
+        width: 300px;
+        padding: 20px;
+    }
+    table{
+        margin-left: 350px;
+        text-align: center;
+        font-size: large;
+    }
+
+    .links{
+        text-decoration: none;
+        color: black;
+    }
+    .links:hover{
+        color: blue;
+    }
+#container{
+    display: grid;
+    width: 30%;
+    grid-template-columns: auto auto auto;
+    margin-left: 450px;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    }
+
+
+    
+.grid-items {
+    
+    background-color: rgba(255, 255, 255, 0.8); 
+    border: 1px solid ;
+    padding: 20px;
+        /* font-size: 30px; */
+    text-align: center;
+    }
+
+.icons{
+        padding: 0px;
+        margin-top:0px;
+    }

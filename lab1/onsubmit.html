@@ -5,49 +5,66 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elearning System: Courses</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header><h1>Elearning system</h1>
+    <header id="secondheader"><h1 id="secondh">Elearning system</h1>
         
-        <a href="main.html">Return to the main page</a>
+        <a id="signlink" href="main.html">Return to the main page</a>
 
     
  </header>
  <hr>
- <hr>
    <main>
-    <h2>Thank you For Signing Up <br> you can select your course from the following table
+    <h2 style="text-align: center;" id="coursespara">Thank you For Signing Up <br> you can select your course from the following table
     </h2>
     <br>
-    <table>
+    <div id="container">
+        <div class="grid-items">course name</div>
+        <div class="grid-items">Instructor</div>
+        <div class="grid-items">Course link</div>
+        <div class="grid-items">Math</div>
+        <div class="grid-items">Tasneem</div>
+        <div class="grid-items"><a class='links' href="#">link</a></div>
+        <div class="grid-items">Science</div>
+        <div class="grid-items">Sarah</div>
+        <div class="grid-items"><a class='links' href="#">link</a></div>
+        <div class="grid-items">English</div>
+        <div class="grid-items">Mohammed</div>
+        <div class="grid-items"><a class='links' href="#">link</a></div>
+       </div>
+    <!-- <table id="mytable">
         <tr>
             <th>course name</th>
             <th>instructor</th>
-            <th>course link</th>
+            <th class="lastcell">course link</th>
 
         </tr>
         <tr>
             <td>math</td>
             <td>tasneem</td>
-            <td><a href="#">link</a></td>
+            <td class="lastcell"><a class='links' href="#">link</a></td>
         </tr>
         <tr>
             <td>science</td>
             <td>sara</td>
-            <td><a href="#">link</a></td>
+            <td class="lastcell"><a class='links' href="#">link</a></td>
         </tr>
         <tr>
             <td>English</td>
             <td>mohammed</td>
-            <td><a href="#">link</a></td>
+            <td class="lastcell"><a class='links' href="#">link</a></td>
         </tr>
-    </table>
+    </table> -->
    </main> 
    <br>
+   <hr>
+
+
    <footer>
-    <hr>
-    <hr>
+   
     <h3>&copy; to author</h3>
 </footer>
+<script src="courses.js"></script>
 </body>
 </html>
