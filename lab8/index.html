@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Book Shop</title>
+</head>
+<body>
+    <h1>Book Store</h1>
+    <select name="filter" id="filter" >
+        <option value="all">All</option>
+        <option value="available">Available</option>
+        <option value="expired">Expired</option>
+    </select>
+    <div id="container">
+    </div>
+    <hr>
+    <hr>
+    <form action="" id="myForm">
+        
+        <fieldset style="width: 40%;">
+            <legend>Add Book</legend>
+        <div class="inputDiv">
+        <label for="name">Book Name</label>
+        <input type="text" name="name" id="name">
+    </div>
+    <div class="inputDiv">
+        <label for="image">Image Link</label>
+        <input type="text" name="image" id="image">
+    </div>
+    <div class="inputDiv">
+        <label for="price">Book Price</label>
+        <input type="number" name="price" id="price">
+    </div>
+             <div id="available">
+                <legend>Available:</legend>
+                <div class="availableclass">
+                    <input type="radio" id="true" name="true" value="true">
+                    <label for="true">Yes</label>
+                  </div>
+              
+                  <div class="availableclass">
+                    <input type="radio" id="false" name="false" value="false">
+                    <label for="false">No</label>
+                  </div>
+            
+                </div>
+                <button type="submit" id="submit">Submit</button>
+            </fieldset>
+    </form>
+    <script src="app.js"></script>
+</body>
+</html>

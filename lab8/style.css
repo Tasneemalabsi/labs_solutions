@@ -1,0 +1,26 @@
+.inputDiv{
+    display: flex;
+    margin-bottom: 10px;
+}
+label{
+    margin-right: 10px;
+}
+#submit {
+    width: 70px;
+    height:30px;
+    font-size: 15px;
+    /* margin-top: -10px; */
+    margin-left: 100px;
+    float: right;
+    /* top: 400px; */
+}
+body {
+    height: 1200px;
+}
+#available {
+    display: flex
+}
+#image{
+    width: 250px;
+    height: 60px;
+}
