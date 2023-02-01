@@ -30,11 +30,16 @@ function renderBooks (a){
 for(let i = 0; i<a.length; i++){
 let divEl = document.createElement('div')
 container.appendChild(divEl)
+divEl.setAttribute("class","card")
+divEl.setAttribute("style","width: 10rem; height:50px")
 let imageEl = document.createElement('img')
+imageEl.setAttribute("class","card-img-top")
 divEl.appendChild(imageEl)
 let nameEl = document.createElement('h3')
+nameEl.setAttribute("class","card-title")
 divEl.appendChild(nameEl)
 let priceEl = document.createElement('h4')
+priceEl.setAttribute("class","card-text")
 divEl.appendChild(priceEl)
     imageEl.src = a[i].image
     imageEl.alt = a[i].name
