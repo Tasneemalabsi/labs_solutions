@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elearning System: SignUp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="secondheader"><h1 id="secondh">Elearning system</h1>
+        
+           <a id="signlink" href="main.html">Return to the main page</a>
+
+       
+    </header>
+    <hr>
+    <main>
+        <form action="onsubmit.html" style="margin-top: 30px;" id="myForm">
+          <div id="formField">
+            <legend id="signlegend" ><b >Sign Up Form</b></legend> <br>
+            <div class="inputclass">
+            <label class="labels" for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname" value="John" class="inputfields"><br>
+          </div>
+          <div class="inputclass">
+            <label class="labels" for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname" value="Doe" class="inputfields"><br>
+          </div>
+          <div class="inputclass">
+            <label for="email" class="labels">Email:</label><br>
+            <input class="inputfields" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="the email pattern should be email@something.com" id="email" name="email"><br>
+          </div>
+          <div class="inputclass">
+            <label class="labels" for="password">Password:</label><br>
+            <input class="inputfields" type="password" id="password" name="password"><br><br>
+          </div>
+
+            <FIEldset id="gender">
+                <legend id="genderlegend"
+                style="font-weight: bold;">Gender:</legend>
+                <div class="genderclass">
+                    <input type="radio" id="huey" name="drone" value="Female"
+                           checked>
+                    <label for="huey">Female</label>
+                  </div>
+              
+                  <div class="genderclass">
+                    <input type="radio" id="dewey" name="drone" value="Male">
+                    <label for="dewey">Male</label>
+                  </div>
+              
+                  <div class="genderclass">
+                    <input type="radio" id="louie" name="drone" value="Other">
+                    <label for="louie">Other</label>
+                  </div>
+            </FIEldset>
+            <br>
+
+            <label for="cars">Birth Month</label>
+
+<select name="cars" id="cars">
+  <option value="volvo">January</option>
+  <option value="saab">February</option>
+  <option value="mercedes">March</option>
+  <option value="audi">April</option>
+</select>
+<br><br>
+<div class="inputclass">
+<label for="BirthYear" class="labels">Birth Year</label><br>
+<input class='inputfields' type="number" id="BirthYear" name="BirthYear"  >
+</div><br><br>
+
+
+            <input type="submit" value="Submit">
+          </div>
+          </form> 
+        
+    </main>
+    <hr>
+    <footer>
+        <h3>&copy; to author</h3>
+    </footer>
+</body>
+</html>
