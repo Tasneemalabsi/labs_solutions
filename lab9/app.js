@@ -1,130 +1,82 @@
 'use strict';
-let container = document.getElementById('container')
-container.style.display="flex"
-container.style.justifyContent = "space-between"
-container.style.flexWrap = "wrap"
-let newArr = []
-if (localStorage.getItem('items') != null){
-     newArr = JSON.parse(localStorage.getItem('items'))
+
+let searchForm = document.getElementById("searchForm");
+searchForm.addEventListener("submit",handleSearch);
+let cardContainer = document.getElementById("cardscontainer")
+let components = [];
+let arr = []
+let obj = localStorage.getItem("drinks")
+if ( obj != null){
+    console.log("hi")
+    arr = JSON.parse(obj)
 }
-else {
-var book1 = new Book ('Desert Solitaire',200,'https://www.powells.com/portals/0/images/9780671695880.jpg',true)
-var book2 = new Book ("The Handmaid's tale",100,'https://www.powells.com/portals/0/images/9780385490818.jpg',false)
-var book3 = new Book ('The Left Hand of Darkness',80,'https://www.powells.com/portals/0/images/9780441007318.jpg',true)
-var book4 = new Book ('Poems',90,'https://www.powells.com/portals/0/images/9780374532369.jpg',true)
-var book5 = new Book ('To Kill a Mockingbird',100,'https://www.powells.com/portals/0/images/9780061120084.jpg',false)
-var book6 = new Book ('The Wind-Up Bird Chronicle',120,'https://www.powells.com/portals/0/images/9780679775430.jpg',true)
+function handleSearch (e) {
+    e.preventDefault()
+    let searchValue = e.target.search.value;
+
+    let water = document.getElementById("water");
+    let orangeJuice = document.getElementById("orangeJuice");
+    let coffee = document.getElementById("coffee");
+    components.push(water, orangeJuice, coffee)
+    console.log(searchValue.toLowerCase())
+    for(let i = 0; i<components.length; i++ ){
+        console.log(components[i])
+        if(components[i].getElementsByTagName("div")[0].getElementsByTagName("h5")[0].textContent.toLowerCase() === searchValue.toLowerCase()){
+            cardContainer.style.visibility = "hidden";
+            components[i].style.visibility = "visible";
+            break;
+        }
+    }
 }
-function Book (name, price=1, image, available=true ){
+
+function Drink (name, price, imageUrl){
     this.name = name;
     this.price = price;
-    this.image = image;
-    this.available = available;
-    newArr.push(this)
+    this.imageUrl = imageUrl;
+    arr.push(this)
 }
 
-
-
-function renderBooks (a){
-
-for(let i = 0; i<a.length; i++){
-let divEl = document.createElement('div')
-container.appendChild(divEl)
-divEl.setAttribute("class","card")
-divEl.setAttribute("style","width: 10rem; height:50px")
-let imageEl = document.createElement('img')
-imageEl.setAttribute("class","card-img-top")
-divEl.appendChild(imageEl)
-let nameEl = document.createElement('h3')
-nameEl.setAttribute("class","card-title")
-divEl.appendChild(nameEl)
-let priceEl = document.createElement('h4')
-priceEl.setAttribute("class","card-text")
-divEl.appendChild(priceEl)
-    imageEl.src = a[i].image
-    imageEl.alt = a[i].name
-    nameEl.textContent = a[i].name
-    priceEl.textContent = "price: "+a[i].price
-}
-
-
-}
-renderBooks(newArr)
-
-let formEl = document.getElementById('myForm');
-
-formEl.addEventListener('submit', newBook)
-
-function newBook (e) {
+let createForm = document.getElementById("createForm");
+createForm.addEventListener("submit", handleCreate)
+function handleCreate(e){
     e.preventDefault()
-    let check = true
-    let addedItems = []
-    let bookName = e.target.name.value;
-    let bookImage = e.target.image.value;
-    let bookPrice = e.target.price.value;
-    let availableBook = document.getElementById("true");
-    let notAvailable = document.getElementById("false");
+    let newName = e.target.drinkName.value;
+    let newImage = e.target.imageURL.value;
+    let newPrice = e.target.drinkPrice.value;
+    let newDrink = new Drink(newName, newPrice, newImage);
+    for(let i=(arr.length)-1; i<arr.length; i++){
+        let newCard = document.createElement("div");
+        cardContainer.appendChild(newCard);
+        newCard.setAttribute("class","card")
+        newCard.style.width = "18rem";
+        newCard.style.height = "300px"
+        let cardImage = document.createElement("img");
+        newCard.appendChild(cardImage);
+        cardImage.src = arr[i].imageUrl;
+        cardImage.setAttribute("class","card-img-top");
+        cardImage.setAttribute("alt","Card image cap");
+        cardImage.setAttribute("height","200px")
+        cardImage.setAttribute("width","25px")
+        let cardBody = document.createElement("div");
+        newCard.appendChild(cardBody);
+        cardBody.setAttribute("class","card-body");
+        let cardHeading = document.createElement("h5");
+        cardBody.appendChild(cardHeading);
+        cardHeading.textContent = arr[i].name;
+        cardHeading.setAttribute("class","card-title")
+        let cardPara = document.createElement("p")
+        cardBody.appendChild(cardPara)
+        cardPara.textContent = `Price: ${arr[i].price}$`;
+        cardPara.setAttribute("class","card-text");
+        components.push(newCard)
 
-    if (availableBook.checked){
-        var newBook = new Book (bookName, bookPrice,bookImage,  check)
     }
-    else if (notAvailable.checked){
-    
-        var newBook = new Book (bookName, bookPrice, bookImage, !check)
-    }
-    addedItems.push(newBook)
-    while (container.firstChild) {
-        container.removeChild(container.firstChild);
-    }
-    
-    saveToLocalStorage(newArr)
-    readFromLocalStorage(newArr)
-    renderBooks(newArr)
-    
+    saveToLocalStorage(arr)
+}
+function saveToLocalStorage(arr){
+    localStorage.setItem("drinks", JSON.stringify(arr))
 }
 
-function saveToLocalStorage(newArr){
-localStorage.setItem('items',JSON.stringify(newArr))
-}
-function readFromLocalStorage(arr){
-    let obj = JSON.parse(localStorage.getItem('items'))
-    if (obj !==null) {
-        console.log('hello',obj)
-        arr=obj
-    }
-    else {
-        arr;
-    }
-}
 
-let selectEl = document.getElementById('filter');
-selectEl.style.marginBottom="10px"
-selectEl.style.width = '200px'
-selectEl.style.height = '30px'
-selectEl.style.fontSize = 'medium'
-selectEl.addEventListener('change',handleChange)
-function handleChange(e){
-    e.preventDefault();
-    let filteredItems = []
-    let expiredItems = []
-    for(let i =0; i<newArr.length; i++){
-        if (newArr[i].available){
-            filteredItems.push(newArr[i])
-        }
-        else {
-            expiredItems.push(newArr[i])
-        }
-    }
-    while (container.firstChild) {
-        container.removeChild(container.firstChild);
-    }
-    if(e.target.value == "available"){
-    renderBooks(filteredItems)}
-    else if (e.target.value == "expired"){
-        renderBooks(expiredItems)
-    }
-    else {
-        renderBooks(newArr)
-    }
 
-}
+

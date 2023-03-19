@@ -8,17 +8,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
-    <!-- <style>
+    <style>
         #cardscontainer{
             display: flex;
             justify-content: space-between;
         }
-    </style> -->
+    </style>
     <title>Document</title>
 </head>
 <body>
+    <div id="hugeContainer">
     <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" style="margin-bottom: 20px;">
             <div class="container-fluid">
               <a class="navbar-brand" href="#">Drinks Shop</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,15 +34,15 @@
                     <a class="nav-link" href="#">Contact Us</a>
                   </li>
                 </ul>
-                <form class="d-flex" role="search" style="margin-left: 400px;">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex" role="search" style="margin-left: 400px;" id="searchForm">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search" id="search">
                   <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
               </div>
             </div>
           </nav>
     </header>
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="margin-bottom: 20px; width:150px; font-size:larger" >
     Add Drink
   </button>
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -52,52 +53,56 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form class="form-inline" role="form">  
+            <form class="form-inline" role="form" id="createForm">  
              <form style="width:300px">  
               <div class="form-group">  
                 <label for="drinkName">Drink Name</label>  
-                <input type="email" class="form-control" id="drinkName" placeholder="Drink">  
+                <input type="text" class="form-control" id="drinkName" placeholder="Drink" name="drinkName">  
               </div>  
               <div class="form-group">  
-                <label for="drinkPrice">Password</label>  
-                <input type="number" class="form-control" id="drinkPrice" placeholder="Price">  
+                <label for="imageURL">Image URL</label>  
+                <input type="text" class="form-control" id="imageURL" placeholder="Image URL" name="imageURL">  
               </div>  
-                
-              <button type="submit" class="btn btn-primary">ADD</button>  
+              <div class="form-group">  
+                <label for="drinkPrice">Price</label>  
+                <input type="number" class="form-control" id="drinkPrice" placeholder="Price" name="drinkPrice">  
+              </div>  
+
+              <button type="submit" class="btn btn-primary" id="submitForm" style="margin-top: 10px;">ADD</button>  
             </form>  
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-primary" id="saveButton">Save changes</button>
         </div>
       </div>
     </div>
   </div>
     <div id="cardscontainer">
-        <div class="card" style="width: 18rem; height:200px">
-            <img class="card-img-top" src="icon.png" alt="Card image cap" height="50px" width="25px">
+        <div class="card" style="width: 18rem; height:300px" id="water">
+            <img class="card-img-top" src="https://pappysspudsandmore.com/wp-content/uploads/2022/03/45.jpg" alt="Card image cap" height="200px" width="25px">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Card's Content here</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <h5 class="card-title">Water</h5>
+              <p class="card-text">Price: 1$</p>
             </div>
           </div>
-          <div class="card" style="width: 18rem; height:200px">
-            <img class="card-img-top" src="icon.png" alt="Card image cap" height="50px" width="25px">
+          <div class="card" style="width: 18rem; height:300px" id="orangeJuice">
+            <img class="card-img-top" src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8b3JhbmdlJTIwanVpY2V8ZW58MHx8MHx8&w=1000&q=80" alt="Card image cap" height="200px" width="25px">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Card's Content here</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <h5 class="card-title">Orange Juice</h5>
+              <p class="card-text">Price: 4$</p>
             </div>
           </div>
-          <div class="card" style="width: 18rem; height:200px">
-            <img class="card-img-top" src="icon.png" alt="Card image cap" height="50px" width="25px">
+          <div class="card" style="width: 18rem; height:300px" id="coffee">
+            <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cup_of_coffee.JPG" alt="Card image cap" height="200px" width="25px">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Card's Content here</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <h5 class="card-title">Coffee</h5>
+              <p class="card-text">Price: 7$</p>
             </div>
           </div>
     </div>
+</div>
+<script src="app.js"></script>
 </body>
+
 </html>
