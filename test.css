@@ -1,0 +1,62 @@
+
+body, h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the header */
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    height: 60px;
+    margin-bottom: 2%;
+    width: 80%;
+    margin-left: 10%;
+}
+h1 {
+    padding-top: 10px;
+}
+
+main {
+    text-align: center;
+    /* margin-top: 20px; */
+}
+
+form {
+    border: 1px solid ;
+    padding: 20px;
+    width: 300px;
+    margin: auto;
+    /* background-color: white; */
+    border-radius: 5px;
+    box-shadow: 0 0 10px gainsboro;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+
+input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}

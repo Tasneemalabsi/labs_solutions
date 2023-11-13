@@ -24,11 +24,11 @@ if(value.age === null){
     headEl.textContent = "We cannot predict the age for this name please make sure you entered a valid name and try again"
 }
 else{
-    let ulEl = document.createElement("ul")
-    divEl.appendChild(ulEl)
-    let liEl1 = document.createElement("li")
-    liEl1.textContent= `Name: ${value.name}`
-    ulEl.appendChild(liEl1)
+    let ulEl = document.createElement("ul");
+    divEl.appendChild(ulEl);
+    let liEl1 = document.createElement("li");
+    liEl1.textContent= `Name: ${value.name}`;
+    ulEl.appendChild(liEl1);
     let liEl2 = document.createElement("li")
     liEl2.textContent= `Age: ${value.age}`
     ulEl.appendChild(liEl2)
